@@ -1,0 +1,56 @@
+{
+  "product1": {
+    "name": "Men Tshirt",
+    "price": "Rs. 400",
+    "quantity": "1",
+    "total": "Rs. 400"
+  },
+  "product2": {
+    "name": "Blue Top",
+    "price": "Rs. 500",
+    "quantity": "1",
+    "total": "Rs. 500"
+  },
+  "billingDetails": {
+    "name": "Mr. Automation User",
+    "companyName": "TestCompany",
+    "country": "United States",
+    "address1": "123 Test St",
+    "address2": "Suite 100",
+    "city": "Los Angeles",
+    "phone": "+1234567890"
+  },
+  "deliveryDetails": {
+    "name": "Mr. Automation User",
+    "companyName": "TestCompany",
+    "country": "United States",
+    "address1": "123 Test St",
+    "address2": "Suite 100",
+    "city": "Los Angeles",
+    "phone": "+1234567890"
+  },
+  "name": "Automation_Test_User",
+  "email": "automation_",
+  "titlemale": "Mr",
+  "titlefemale": "Mrs",
+  "password": "Test@1234",
+  "day": "15",
+  "month": "June",
+  "year": "1990",
+  "firstName": "Automation",
+  "lastName": "User",
+  "company": "TestCompany",
+  "addressLine1": "123 Test St",
+  "addressLine2": "Suite 100",
+  "country": "United States",
+  "state": "California",
+  "city": "Los Angeles",
+  "zipCode": "90001",
+  "mobileNumber": "+1234567890",
+  "messages": {
+    "error": "Email Address already exist!",
+    "success": "ACCOUNT CREATED!",
+    "cartadded": "Your product has been added to cart.",
+    "checkoutSuccess": "Thank you for your purchase!"
+  }
+}
