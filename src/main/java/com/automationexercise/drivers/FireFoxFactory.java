@@ -3,8 +3,6 @@ package com.automationexercise.drivers;
 import com.automationexercise.utils.dataReader.PropertyReader;
 import com.automationexercise.utils.logs.LogsManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.devtools.v138.profiler.model.Profile;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -58,4 +56,5 @@ public class FireFoxFactory extends AbstractDriver {
 
     }
 }
+//asdfgdgasdgasdg
 
