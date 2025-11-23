@@ -61,4 +61,4 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: ${{ matrix.browser }}_${{ matrix.os }}_Report
-          path: "workflow-project/test-output/reports/*.html"
+          path: "test-output/Workflow/*.html"
