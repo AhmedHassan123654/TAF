@@ -1,0 +1,64 @@
+name: Run Workflow Automation
+
+# يشتغل عند كل Push على main أو master
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+env:
+  TARGET: "com.ferpfirstcode.tests.**"  # يمكن تغييرها لتحديد اختبارات معينة
+
+jobs:
+  workflow-tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        browser: [Chrome, Edge]
+
+    permissions:
+      checks: write
+
+    steps:
+      # خطوة 1: سحب Main Repository
+      - name: Checkout Main Repository
+        uses: actions/checkout@v6
+
+      # خطوة 2: سحب Workflow Repository (Public Repo)
+      - name: Checkout Workflow Repository
+        uses: actions/checkout@v6
+        with:
+          repository: AhmedHassan1/Full-Test-Case
+          path: workflow-project
+
+      # خطوة 3: إعداد Java
+      - name: Setup Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # خطوة 4: إعداد Maven
+      - name: Setup Maven
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.9.9
+
+      # خطوة 5: تشغيل اختبارات Workflow
+      - name: Run Workflow Automation
+        working-directory: workflow-project
+        continue-on-error: false  # فشل الاختبارات يظهر مباشرة
+        run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless" -DbrowserType="${{ matrix.browser }}" clean test
+
+      # خطوة 6: رفع التقارير
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v5
+        with:
+          name: ${{ matrix.browser }}_${{ matrix.os }}_Report
+          path: "workflow-project/test-output/reports/*.html"

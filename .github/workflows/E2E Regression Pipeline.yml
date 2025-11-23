@@ -1,36 +1,36 @@
-name: Run Workflow Automation
-
-# يشتغل عند كل Push على الفرع الرئيسي
-on:
-  push:
-    branches:
-      - main
-      - master
-
-jobs:
-  run-workflow:
-    runs-on: ubuntu-latest
-
-    steps:
-      # خطوة 1: سحب Main Repo
-      - name: Checkout Main Repository
-        uses: actions/checkout@v5
-
-      # خطوة 2: سحب Workflow Repo (Public Repo لا يحتاج token)
-      - name: Checkout Workflow Repository
-        uses: actions/checkout@v5
-        with:
-          repository: AhmedHassan1/Full-Test-Case
-          path: workflow-project  # سيتم وضعه داخل هذا المجلد
-
-      # خطوة 3: إعداد Java
-      - name: Set up Java
-        uses: actions/setup-java@v5
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      # خطوة 4: تشغيل اختبارات Workflow
-      - name: Run Workflow Automation
-        working-directory: workflow-project
-        run: mvn clean test
+#name: Run Workflow Automation
+#
+## يشتغل عند كل Push على الفرع الرئيسي
+#on:
+#  push:
+#    branches:
+#      - main
+#      - master
+#
+#jobs:
+#  run-workflow:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      # خطوة 1: سحب Main Repo
+#      - name: Checkout Main Repository
+#        uses: actions/checkout@v5
+#
+#      # خطوة 2: سحب Workflow Repo (Public Repo لا يحتاج token)
+#      - name: Checkout Workflow Repository
+#        uses: actions/checkout@v5
+#        with:
+#          repository: AhmedHassan1/Full-Test-Case
+#          path: workflow-project  # سيتم وضعه داخل هذا المجلد
+#
+#      # خطوة 3: إعداد Java
+#      - name: Set up Java
+#        uses: actions/setup-java@v5
+#        with:
+#          java-version: '17'
+#          distribution: 'temurin'
+#
+#      # خطوة 4: تشغيل اختبارات Workflow
+#      - name: Run Workflow Automation
+#        working-directory: workflow-project
+#        run: mvn clean test
