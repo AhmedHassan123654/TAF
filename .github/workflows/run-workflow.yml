@@ -58,7 +58,7 @@ jobs:
 
       # خطوة 6: رفع التقارير
       - name: Upload Test Results
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: ${{ matrix.browser }}_${{ matrix.os }}_Report
           path: "test-output/Workflow/*.html"
